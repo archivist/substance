@@ -10,7 +10,7 @@ Panel.Prototype = function() {
 
   this.getPanelOffsetForElement = function(el) {
     // initial offset
-    var offset = 0;
+    var offset = $(el).position().top;
 
     // TODO: Why is this.getScrollableContainer() not working here?
     var panelContentEl = this.getScrollableContainer();
@@ -29,7 +29,7 @@ Panel.Prototype = function() {
       addParentOffset(parentEl);
     }
 
-    addParentOffset(el);
+    addParentOffset(el.parentNode);
     return offset;
   };
 
